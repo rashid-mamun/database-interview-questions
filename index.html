@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interviewer Questions: Database Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+  <style>
+    #search-container { margin: 20px; }
+    #search-input { padding: 5px; width: 300px; }
+    #search-results { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search questions...">
+    <div id="search-results"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script>
+    window.$docsify = {
+      name: 'Database Interview Questions',
+      repo: 'https://github.com/your-username/Interviewer-Questions-Database',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      search: 'auto'
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      const files = [
+        'README.md', 'General-Database.md', 'MySQL.md', 'MongoDB.md', 
+        'SQL.md', 'PostgreSQL.md', 'Redis.md', 'Practical-Scenarios.md', 'Behavioral.md'
+      ];
+
+      searchInput.addEventListener('input', async () => {
+        const query = searchInput.value.toLowerCase();
+        searchResults.innerHTML = '';
+        if (!query) return;
+
+        for (const file of files) {
+          const response = await fetch(file);
+          const text = await response.text();
+          const lines = text.split('\n');
+          lines.forEach((line, index) => {
+            if (line.toLowerCase().includes(query)) {
+              const result = document.createElement('div');
+              result.innerHTML = `<a href="${file}#L${index + 1}">${line.trim()}</a>`;
+              searchResults.appendChild(result);
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "database-interview-questions",
+  "version": "1.0.0",
+  "description": "A collection of database-related interview questions and answers, organized by topic.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
