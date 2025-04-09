@@ -2,9 +2,13 @@
   "name": "database-interview-questions",
   "version": "1.0.0",
   "description": "A collection of database-related interview questions and answers, organized by topic.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "docsify serve"
+  },
+  "dependencies": {
+    "docsify-cli": "^4.4.4"
   },
   "keywords": [],
   "author": "",

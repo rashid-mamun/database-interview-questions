@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Interviewer Questions: Database Edition</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">
-  <style>
-    #search-container { margin: 20px; }
-    #search-input { padding: 5px; width: 300px; }
-    #search-results { margin-top: 10px; }
-  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./favicon.png">
+
+  <!-- Meta Tags for SEO -->
+  <meta name="description"
+    content="A collection of database-related interview questions to help you prepare for your next interview.">
+  <meta name="keywords" content="interview questions, database, SQL, data structures, job preparation">
+  <meta name="author" content="rashid-mamun">
+
+  <!-- Open Graph Meta Tags for social media sharing -->
+  <meta property="og:title" content="Interviewer Questions: Database Edition">
+  <meta property="og:description"
+    content="A collection of database-related interview questions to help you prepare for your next interview.">
+  <meta property="og:image" content="https://example.com/your-image.jpg">
+  <meta property="og:url" content="https://github.com/rashid-mamun/database-interview-questions">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./styles/custom.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+    title="docsify-darklight-theme" type="text/css" onerror="this.onerror=null; this.href='./fallback.css'" />
+
 </head>
+
 <body>
   <div id="app"></div>
-  <div id="search-container">
-    <input type="text" id="search-input" placeholder="Search questions...">
-    <div id="search-results"></div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
   <script>
     window.$docsify = {
+      themeColor: "#1797cf",
       name: 'Database Interview Questions',
-      repo: 'https://github.com/your-username/Interviewer-Questions-Database',
+      repo: 'https://github.com/rashid-mamun/database-interview-questions',
+      relativePath: true,
       loadSidebar: true,
       subMaxLevel: 3,
-      auto2top: true,
-      search: 'auto'
+      search: {
+        maxAge: 86400000,
+        paths: "auto",
+        placeholder: "Search",
+        noData: "No Results found!",
+        depth: 6,
+        hideOtherSidebarContent: false,
+      },
+      darklightTheme: {
+        bodyFontSize: "16px",
+        dark: {
+          accent: "#d44e70",
+        },
+        light: {
+          accent: "#4ed4d2",
+        },
+      },
     }
   </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      const files = [
-        'README.md', 'General-Database.md', 'MySQL.md', 'MongoDB.md', 
-        'SQL.md', 'PostgreSQL.md', 'Redis.md', 'Practical-Scenarios.md', 'Behavioral.md'
-      ];
 
-      searchInput.addEventListener('input', async () => {
-        const query = searchInput.value.toLowerCase();
-        searchResults.innerHTML = '';
-        if (!query) return;
-
-        for (const file of files) {
-          const response = await fetch(file);
-          const text = await response.text();
-          const lines = text.split('\n');
-          lines.forEach((line, index) => {
-            if (line.toLowerCase().includes(query)) {
-              const result = document.createElement('div');
-              result.innerHTML = `<a href="${file}#L${index + 1}">${line.trim()}</a>`;
-              searchResults.appendChild(result);
-            }
-          });
-        }
-      });
-    });
-  </script>
+  <!-- Docsify v4 Scripts with Fallback -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4" onerror="this.onerror=null; this.src='./docsify.js'"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"
+    onerror="this.onerror=null; this.src='./docsify-edit-on-github.js'"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"
+    onerror="this.onerror=null; this.src='./search.min.js'"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"
+    onerror="this.onerror=null; this.src='./index.min.js'"></script>
 </body>
+
 </html>
