@@ -5,12 +5,16 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "docsify serve"
+    "start": "docsify serve ."
   },
   "dependencies": {
     "docsify-cli": "^4.4.4"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["database", "interview", "questions", "SQL", "MongoDB", "MySQL", "PostgreSQL", "Redis"],
+  "author": "rashid-mamun",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rashid-mamun/database-interview-questions.git"
+  }
 }
