@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/favicon.ico">
+  <link rel="icon" type="image/png" href="./favicon.png">
 
   <!-- Meta Tags for SEO -->
   <meta name="description"
@@ -25,12 +25,18 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./assets/styles/custom.css" />
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
-    title="docsify-darklight-theme" type="text/css" onerror="this.onerror=null; this.href='./assets/styles/fallback.css'" />
-
+    title="docsify-darklight-theme" type="text/css" onerror="this.onerror=null; this.href='./fallback.css'" />
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <!-- Add a hamburger menu for mobile -->
+    <div class="hamburger" onclick="toggleSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 
   <script>
     window.$docsify = {
@@ -58,16 +64,22 @@
         },
       },
     }
+
+    // Function to toggle sidebar on mobile
+    function toggleSidebar() {
+      const sidebar = document.querySelector('#sidebar');
+      sidebar.classList.toggle('active');
+    }
   </script>
 
   <!-- Docsify v4 Scripts with Fallback -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4" onerror="this.onerror=null; this.src='./assets/js/docsify.js'"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4" onerror="this.onerror=null; this.src='./docsify.js'"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"
-    onerror="this.onerror=null; this.src='./assets/js/docsify-edit-on-github.js'"></script>
+    onerror="this.onerror=null; this.src='./docsify-edit-on-github.js'"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"
-    onerror="this.onerror=null; this.src='./assets/js/search.min.js'"></script>
+    onerror="this.onerror=null; this.src='./search.min.js'"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript"
-    onerror="this.onerror=null; this.src='./assets/js/index.min.js'"></script>
+    onerror="this.onerror=null; this.src='./index.min.js'"></script>
 </body>
 
 </html>
